@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card p-3">
+    <h6>List ALL Courses
+      <a class="btn-link float-end" routerLink="/admin/cc"> Creat New </a>
+    </h6>
+    <div class="card-body">
+      <table class="table ">
+        <tr>
+          <th>ID</th>
+          <th>title</th>
+          <th>Department</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>instructor</th>
+          <th colspan="2">Action</th>
+        </tr>
+        @for (item of allData; track item.id) {
+        <tr>
+          <th> {{ item.id }}</th>
+          <th> {{ item.title }}</th>
+          <th> {{ item.department }}</th>
+          <th> {{ item.price }}</th>
+          <th> <img width="90" [src]="item.img" alt=""></th>
+          <th> {{ item.instructor }}</th>
+          <th> <button (click)="deleteCouse(item.id)" class="btn btn-danger"> Delete </button> </th>
+          <th> <a routerLink="/admin/uc/{{ item.id }}" class="btn btn-warning"> Edit </a> </th>
+          }
+      </table>
+    </div>
+  </div>
+</div>
